@@ -1,0 +1,130 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>Song Search</title>
+
+</head>
+<body>
+
+<h1>Choose your Genre</h1>
+
+<select name="genresy" id="genres">
+  <option value="Indie">Indie</option>
+  <option value="Acoustic">Acoustic</option>
+  <option value="Bluegrass">Bluegrass</option>
+  <option value="Electronic">Electronic</option>
+  <option value="Swing">Swing</option>
+  <option value="Musical">Musical</option>
+  <option value="Rap">Rap</option>
+</select>
+<button onclick="disp_func()">Heyo</button>
+
+<script type="text/javascript">
+	
+
+	function disp_func() {
+		let songs =
+		[
+
+			{
+				"artist": ["Ripe"],
+				"title": "Pretty Dirty (In The Fading Light)",
+				"genre": ["Indie"],
+				"year": 2013
+			},
+			{
+				"artist": ["Sufjan Stevens"],
+				"title": "Mystery of Love",
+				"genre": ["Acoustic"],
+				"year": 2017
+			},
+			{
+				"artist": ["Glen Hansard", "Marketa Irglova"],
+				"title": "Falling Slowly",
+				"genre": ["Acoustic"],
+				"year": 2006
+			},
+			{
+				"artist": ["The Devil Makes Three"],
+				"title": "St. James",
+				"genre": ["Bluegrass"],
+				"year": 2006
+			},
+			{
+				"artist": ["Caravan Palace"],
+				"title": "Dramophone",
+				"genre": ["Electronic", "Swing"],
+				"year": 2012
+			},
+			{
+				"artist": ["La La Land Cast"],
+				"title": "Another Day of Sun",
+				"genre": ["Musical"],
+				"year": 2016
+			},
+			{
+				"artist": ["Eminem"],
+				"title": "The Way I Am",
+				"genre": ["Rap"],
+				"year": 2000
+			},
+			{
+				"artist": ["YBN Cordae", "Chance the Rapper"],
+				"title": "Bad Idea",
+				"genre": ["Rap"],
+				"year": 2019
+			},
+			{
+				"artist": ["Kendrick Lamar"],
+				"title": "Rigamortis",
+				"genre": ["Rap"],
+				"year": 2011
+			},
+			{
+				"artist": ["Hamilton Cast"],
+				"title": "Dear Theodosia",
+				"genre": ["Musical"],
+				"year": 2015
+			}
+
+		]
+		var disp_var = document.getElementById('genres').value;
+		for (var i = 0; i < songs.length; i++)
+		{
+			for (var j = 0; j < songs[i].genre.length; j++)
+			{
+				if (songs[i].genre[j] == disp_var)
+				{
+					document.write("<center><h2>" + songs[i].title + "</h2><p>Artist: ");
+
+					for (var k = 0; k < songs[i].artist.length; k++)
+					{
+						if (k != songs[i].artist.length-1)
+							document.write(songs[i].artist[k] + ", ");
+						else
+							document.write(songs[i].artist[k]);
+					}
+
+					document.write("<br/>Genre: ");
+
+					for (var l = 0; l < songs[i].genre.length; l++)
+					{
+						if (l != songs[i].genre.length-1)
+							document.write(songs[i].genre[l] + ", ");
+						else
+							document.write(songs[i].genre[l]);
+					}
+
+					document.write("<br/>Released " + songs[i].year + "<br/></p></center>")
+				}
+			}
+		}
+
+		document.write("<a href=index.html>Click to return to selection</a>")
+
+	}
+	
+</script>
+
+</body>
+</html>
